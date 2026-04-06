@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Змійка</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Змійка</h1>
+
+<div class="controls">
+    Керування: ↑ ↓ ← →
+</div>
+
+<div class="center">
+    <div class="wrapper">
+        <canvas id="game" width="400" height="400"></canvas>
+
+        <div class="overlay" id="overlay">
+            <button onclick="startGame()">Старт</button>
+        </div>
+    </div>
+</div>
+
+<div class="panel">
+    <div id="score">Рахунок: 0</div>
+    <div id="highscore">Рекорд: 0</div>
+</div>
+
+<script src="game.js"></script>
+<script src="movement.js"></script>
+
+</body>
+</html>
