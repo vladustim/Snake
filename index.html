@@ -2,6 +2,8 @@
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111">
 <title>Змійка</title>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -16,10 +18,12 @@
 
 <div class="center">
     <div class="wrapper">
-        <canvas id="game" width="400" height="400"></canvas>
-
+        <canvas id="game"></canvas>
         <div class="overlay" id="overlay">
-            <button onclick="startGame()">Старт</button>
+            <div class="menu">
+                <h2 id="gameText">Змійка</h2>
+                <button type="button" id="startBtn">Старт</button>
+            </div>
         </div>
     </div>
 </div>
@@ -30,7 +34,6 @@
 </div>
 
 <script src="game.js"></script>
-<script src="movement.js"></script>
 
 </body>
 </html>
