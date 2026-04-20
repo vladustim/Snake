@@ -45,7 +45,7 @@ canvas {
     to { opacity: 1; }
 }
 
-/* Кнопка */
+
 button {
     padding: 15px 35px;
     font-size: 20px;
@@ -69,7 +69,7 @@ button:active {
 
 h1 {
     position: absolute; 
-    top: 10px;  /* піднято вище */
+    top: 10px;  
     left: 50%;
     transform: translateX(-50%);
     color: #0f0;
@@ -80,7 +80,7 @@ h1 {
 
 .panel {
     position: absolute;
-    top: calc(50% - 45vh); /* приблизно верх canvas */
+    top: calc(50% - 45vh);
     right: 20px;
     color: #0f0;
     text-shadow: 0 0 5px #0f0;
@@ -90,7 +90,7 @@ h1 {
 @media (max-width: 768px) {
     .panel {
         top: auto;
-        bottom: calc(50% - 45vh); /* нижче canvas на мобільних */
+        bottom: calc(50% - 45vh); 
         right: 50%;
         transform: translateX(50%);
         text-align: center;
