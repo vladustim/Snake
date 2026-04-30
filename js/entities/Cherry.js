@@ -1,3 +1,5 @@
+import GameConfig from "../config.js";
+
 export default class Cherry {
     constructor() {
         this.x = 0;
@@ -8,8 +10,8 @@ export default class Cherry {
         let valid = false;
 
         while (!valid) {
-            this.x = Math.floor(Math.random() * 20);
-            this.y = Math.floor(Math.random() * 20);
+            this.x = Math.floor(Math.random() * GameConfig.CELLS);
+            this.y = Math.floor(Math.random() * GameConfig.CELLS);
 
             valid = !snake.cells.some(c => c.x === this.x && c.y === this.y);
         }

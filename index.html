@@ -10,28 +10,56 @@
 
 <body>
 
-<h1>Змійка</h1>
-
-<div class="controls">
-    Керування: ↑ ↓ ← →
+<div class="header">
+    <div id="score">Рахунок: 0</div>
+    <h1>Змійка</h1>
+    <div id="highscore">Рекорд: 0</div>
 </div>
 
-<div class="center">
-    <div class="wrapper">
-        <canvas id="game"></canvas>
-        <div class="overlay" id="overlay">
-            <div class="menu">
-                <h2 id="gameText">Змійка</h2>
-                <button type="button" id="startBtn">Старт</button>
+<div class="main-container">
+    <div class="center">
+        <div class="wrapper">
+            <canvas id="game"></canvas>
+            <div class="overlay" id="overlay">
+                <div class="menu">
+                    <h2 id="gameText">Змійка</h2>
+                    <button type="button" id="startBtn">Старт</button>
+                    <div class="controls">Керування: ↑ ↓ ← →</div>
+                </div>
             </div>
+        </div>
+    </div>
+    
+    <div class="leaderboard-sidebar" id="leaderboardSidebar">
+        <div class="profile-section">
+            <span id="currentProfile">Гравець: -</span>
+            <button id="profileBtn">Профіль</button>
+        </div>
+        <h3>Топ Гравців</h3>
+        <div id="sidebarLeaderboard"></div>
+    </div>
+</div>
+
+<!-- Модальне вікно профілів -->
+<div class="modal" id="profileModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Профілі</h2>
+            <button class="close-btn" id="closeProfileModal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="profile-input">
+                <input type="text" id="profileInput" placeholder="Ім'я профілю">
+                <button id="createProfileBtn">Створити</button>
+            </div>
+            <div id="profilesList" class="profiles-list"></div>
+            <div id="leaderboard" class="leaderboard"></div>
         </div>
     </div>
 </div>
 
-<div class="panel">
-    <div id="score">Рахунок: 0</div>
-    <div id="highscore">Рекорд: 0</div>
-</div>
+<!-- Повідомлення про помилку в грі -->
+<div class="error-message" id="errorMessage"></div>
 
 <script type="module" src="js/main.js"></script>
 

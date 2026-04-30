@@ -1,20 +1,25 @@
 export default class InputSystem {
-    constructor(game, snake) {
-        document.addEventListener("keydown", e => {
-            if (!snake) return;
+    constructor(snake) {
+        this.snake = snake;
+        this.handleKeydown = this.handleKeydown.bind(this);
+        document.addEventListener("keydown", this.handleKeydown);
+    }
 
-            if (e.key === "ArrowLeft" && snake.dx === 0) {
-                snake.dx = -1; snake.dy = 0;
-            }
-            else if (e.key === "ArrowRight" && snake.dx === 0) {
-                snake.dx = 1; snake.dy = 0;
-            }
-            else if (e.key === "ArrowUp" && snake.dy === 0) {
-                snake.dx = 0; snake.dy = -1;
-            }
-            else if (e.key === "ArrowDown" && snake.dy === 0) {
-                snake.dx = 0; snake.dy = 1;
-            }
-        });
+    handleKeydown(e) {
+        if (!this.snake) return;
+
+        if (e.key === "ArrowLeft") {
+            this.snake.setDirection(-1, 0);
+        } else if (e.key === "ArrowRight") {
+            this.snake.setDirection(1, 0);
+        } else if (e.key === "ArrowUp") {
+            this.snake.setDirection(0, -1);
+        } else if (e.key === "ArrowDown") {
+            this.snake.setDirection(0, 1);
+        }
+    }
+
+    dispose() {
+        document.removeEventListener("keydown", this.handleKeydown);
     }
 }
