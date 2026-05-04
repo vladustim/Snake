@@ -57,10 +57,15 @@ const updateProfileDisplay = () => {
 };
 
 const updateSidebarLeaderboard = () => {
-    const profiles = profileManager.getAllProfiles();
-    let html = "";
+    const profiles = profileManager.getAllProfiles().slice(0, 5);
 
-    profiles.slice(0, 5).forEach((profile, index) => {
+    if (!profiles.length) {
+        dom.sidebarLeaderboard.innerHTML = "<p style='color: #0f0; font-size: 12px; text-align: center;'>Немає рекордів</p>";
+        return;
+    }
+
+    let html = "";
+    profiles.forEach((profile, index) => {
         html += `<div class="sidebar-item">
             <span class="rank">#${index + 1}</span>
             <span class="name">${profile.name}</span>
@@ -68,7 +73,7 @@ const updateSidebarLeaderboard = () => {
         </div>`;
     });
 
-    dom.sidebarLeaderboard.innerHTML = html || "<p style='color: #0f0; font-size: 12px; text-align: center;'>Немає рекордів</p>";
+    dom.sidebarLeaderboard.innerHTML = html;
 };
 
 const updateLeaderboardOnScore = () => {
@@ -78,10 +83,15 @@ const updateLeaderboardOnScore = () => {
 };
 
 const updateLeaderboard = () => {
-    const profiles = profileManager.getAllProfiles();
-    let html = "<h3>Рейтинг:</h3><div class='leaderboard-list'>";
+    const profiles = profileManager.getAllProfiles().slice(0, 10);
 
-    profiles.slice(0, 10).forEach((profile, index) => {
+    if (!profiles.length) {
+        dom.leaderboard.innerHTML = "<p style='color: #0f0; font-size: 12px; text-align: center;'>Немає профілів</p>";
+        return;
+    }
+
+    let html = "<h3>Рейтинг:</h3><div class='leaderboard-list'>";
+    profiles.forEach((profile, index) => {
         html += `<div class="leaderboard-item">
             <span>${index + 1}. ${profile.name}</span>
             <span>${profile.highScore}</span>
@@ -89,7 +99,7 @@ const updateLeaderboard = () => {
     });
 
     html += "</div>";
-    dom.leaderboard.innerHTML = html || "<p style='color: #0f0; font-size: 12px; text-align: center;'>Немає профілів</p>";
+    dom.leaderboard.innerHTML = html;
 };
 
 const refreshAllUI = () => {
